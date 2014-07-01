@@ -1,0 +1,3 @@
+[submodule "maid"]
+	path = maid
+	url = git@github.com:volkovasystems/maid.git
