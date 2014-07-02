@@ -1,3 +1,6 @@
 [submodule "maid"]
 	path = maid
 	url = git@github.com:volkovasystems/maid.git
+[submodule "extract-parameter-list-from-function"]
+	path = extract-parameter-list-from-function
+	url = git@github.com:volkovasystems/extract-parameter-list-from-function.git
