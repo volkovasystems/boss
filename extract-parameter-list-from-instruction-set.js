@@ -16,7 +16,8 @@
 	@include:
 		{
 			"fs": "fs",
-			"path": "path"
+			"path": "path",
+			"extract-parameter-list-from-function": "extractParameterListFromFunction"
 		}
 	@end-include
 */
@@ -37,13 +38,15 @@ var extractParameterListFromInstructionSet = function extractParameterListFromIn
 		var instruction = instructionSet[ command ];
 		var instructionFilePath = [ instructionSetDirectoryPath, instruction.fileName + ".js" ].join( path.sep );
 
-        var instructionProcedure = require( instructionFilePath );
-        var rawInstructionProcedure = instructionProcedure.toString( );
+		var instructionProcedure = require( instructionFilePath );
+		var rawInstructionProcedure = instructionProcedure.toString( );
 
-
+		var parameterList = extractParameterListFromFunction( rawInstructProcedure );
+		instruction.parameterList = parameterList;
 	}
 };
 
 var fs = require( "fs" );
 var path = require( "path" );
+var extractParameterListFromFunction = require( "./extract-parameter-list-from-function/extract-parameter-list-from-function.js" );
 ( module || { } ).exports = extractParameterListFromInstructionSet;
