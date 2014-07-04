@@ -39,9 +39,8 @@ var extractParameterListFromInstructionSet = function extractParameterListFromIn
 		var instructionFilePath = [ instructionSetDirectoryPath, instruction.fileName + ".js" ].join( path.sep );
 
 		var instructionProcedure = require( instructionFilePath );
-		var rawInstructionProcedure = instructionProcedure.toString( );
 
-		var parameterList = extractParameterListFromFunction( rawInstructProcedure );
+		var parameterList = extractParameterListFromFunction( instructionProcedure );
 		instruction.parameterList = parameterList;
 	}
 };
